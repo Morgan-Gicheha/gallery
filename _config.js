@@ -2,9 +2,9 @@ var config = {}
 
 // Update to have your correct username and password
 config.mongoURI = {
-    production: 'mongodb+srv://morgangicheha:DqLWi7rM9xlwXhVd@gallery.wc344.mongodb.net/darkroom?retryWrites=true&w=majority',
-    development: 'mongodb+srv://morgangicheha:DqLWi7rM9xlwXhVd@gallery.wc344.mongodb.net/darkroom-dev?retryWrites=true&w=majority',
-    test: 'mongodb+srv://morgangicheha:DqLWi7rM9xlwXhVd@gallery.wc344.mongodb.net/darkroom-test?retryWrites=true&w=majority',
+    production: 'mongodb+srv://gicheha:gicheha@cluster0.xuqdg.mongodb.net/darkroom/?retryWrites=true&w=majority',
+    development: 'mongodb+srv://gicheha:gicheha@cluster0.xuqdg.mongodb.net/darkroom-dev/?retryWrites=true&w=majority',
+    test: 'mongodb+srv://gicheha:gicheha@cluster0.xuqdg.mongodb.net/darkroom-test/?retryWrites=true&w=majority',
 }
-module.exports = config;
 
+module.exports = config;
