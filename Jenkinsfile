@@ -2,9 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('requirements') {
             steps {
-                echo 'Hello World'
+                echo 'npm install'
+            }
+        }
+        stage('Run APP') {
+            steps {
+                echo 'npm start'
             }
         }
     }
