@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        nodejs 'NodeJS' 
+        nodejs 'NodeJS'
     }
     stages {
         stage('requirements') {
@@ -9,6 +9,13 @@ pipeline {
                 echo 'before npm install'
                 sh 'npm install'
                 echo 'After npm install'
+            }
+        }
+        stage('Tests') {
+            steps {
+                echo 'before Tests'
+                sh 'npm test'
+                echo 'After Tests'
             }
         }
         stage('Run APP') {
