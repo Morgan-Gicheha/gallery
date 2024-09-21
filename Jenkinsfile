@@ -4,12 +4,16 @@ pipeline {
     stages {
         stage('requirements') {
             steps {
-                echo 'npm install'
+                echo 'before npm install'
+                sh 'npm install'
+                echo 'After npm install'
             }
         }
         stage('Run APP') {
             steps {
-                echo 'npm start'
+                echo 'before npm start'
+                sh 'npm start'
+                echo 'After npm start'
             }
         }
     }
