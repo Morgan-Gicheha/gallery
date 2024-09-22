@@ -17,6 +17,22 @@ pipeline {
                 sh 'npm test'
                 echo 'After Tests'
             }
+            post {
+                success {
+                    echo 'Tests passed. Sending Slack notification...'
+                    slackSend (
+                        color: '#36a64f', 
+                        message: "Tests passed: ${env.JOB_NAME} - ${env.BUILD_NUMBER}"
+                    )
+                }
+                failure {
+                    echo 'Tests failed. Sending Slack notification...'
+                    slackSend (
+                        color: '#ff0000', 
+                        message: "Tests failed: ${env.JOB_NAME} - ${env.BUILD_NUMBER}"
+                    )
+                }
+            }
         }
         stage('Run APP') {
             steps {
@@ -24,18 +40,6 @@ pipeline {
                 sh 'npm start'
                 echo 'After npm start'
             }
-        }
-    }
-    post {
-        success {
-            echo 'Tests passed. Sending Slack notification...'
-            slackSend (
-                color: '#36a64f', 
-                message: "Build passed: ${env.JOB_NAME} - ${env.BUILD_NUMBER}"
-            )
-        }
-        failure {
-            echo 'Tests failed.'
         }
     }
 }
