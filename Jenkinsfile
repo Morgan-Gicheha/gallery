@@ -3,6 +3,11 @@ pipeline {
     tools {
         nodejs 'NodeJS12'
     }
+
+    environment {
+        RENDER_URL = 'https://xyz.com'
+        LOCAL_URL = 'http://localhost:3000'
+        }
     stages {
         stage('requirements') {
             steps {
@@ -22,14 +27,14 @@ pipeline {
                     echo 'Tests passed. Sending Slack notification...'
                     slackSend(
                         color: '#36a64f',
-                        message: "Tests passed: ${env.JOB_NAME} - ${env.BUILD_NUMBER}"
+                        message: "Tests passed: JOB_NAME :=> ${env.JOB_NAME}  BUILD_NUMBER:=> ${env.BUILD_NUMBER}"
                     )
                 }
                 failure {
                     echo 'Tests failed. Sending Slack notification...'
                     slackSend(
                         color: '#ff0000',
-                        message: "Tests failed: ${env.JOB_NAME} - ${env.BUILD_NUMBER}"
+                        message: "Tests passed: JOB_NAME :=> ${env.JOB_NAME}  BUILD_NUMBER:=> ${env.BUILD_NUMBER}"
                     )
                 }
             }
@@ -64,7 +69,6 @@ pipeline {
             )
                 }
             }
-
         }
     }
 }
