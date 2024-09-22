@@ -13,6 +13,8 @@ let image = require('./routes/image');
 // Initializing the app
 const app = express();
 
+
+
 // connecting the database
 
 const MONGODB_URI = process.env.MONGODB_URI || config.mongoURI[app.settings.env]
