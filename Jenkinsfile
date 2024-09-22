@@ -52,6 +52,7 @@ pipeline {
                     slackSend(
                 color: '#36a64f',
                 message: """
+                *DEPLOYEMENT SUCCESS*
                 *Build ID*: ${env.BUILD_ID}
                 *Render URL*: ${env.RENDER_URL}
                 *Localhost*: ${env.LOCAL_URL}
@@ -63,6 +64,7 @@ pipeline {
                     slackSend(
                 color: '#ff0000',
                 message: """
+                *DEPLOYEMENT FAILED*
                 Pipeline failed for *Build ID*: ${env.BUILD_ID}.
                 Please check the logs and retry.
                 """
