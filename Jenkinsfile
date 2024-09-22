@@ -26,4 +26,18 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            echo 'Tests passed. Sending Slack notification...'
+            slackSend (
+                channel: 'morgan_ip1', 
+                color: '#36a64f', 
+                message: "Build passed: ${env.JOB_NAME} - ${env.BUILD_NUMBER}",
+                tokenCredentialId: 'slack'  // The ID of your Slack secret token
+            )
+        }
+        failure {
+            echo 'Tests failed.'
+        }
+    }
 }
